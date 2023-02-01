@@ -128,8 +128,8 @@
 				}
 			}
 			*/
-			//echo"--66---------------------------------------------------------------------------\n";
-			//print_r($domain_data);
+			echo"--66---------------------------------------------------------------------------\n";
+			print_r($domain_data);
 			//print_r($content_data);
 			//print "-|-".$domain_data["db"]["SEOFriendly"]."-|-";
 			if($domain_data["db"]["SEOFriendly"]=="No"){
