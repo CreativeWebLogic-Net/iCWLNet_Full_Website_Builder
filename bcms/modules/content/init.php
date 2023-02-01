@@ -105,7 +105,7 @@
 			if(isset($domain_user_data)>0){
 				if(count($domain_user_data)>0){
 					
-					$sql="SELECT * FROM content_pages WHERE module_viewsID='25' AND domainsID=".$domain_data['id']." AND languagesID=".$_SESSION['LanguagesID']." LIMIT 0,1";
+					$sql="SELECT * FROM content_pages WHERE module_viewsID='25' AND domainsID=".$domain_data['db']['id']." AND languagesID=".$_SESSION['LanguagesID']." LIMIT 0,1";
 					$rslt=$r->RawQuery($sql);
 					if($r->NumRows($rslt)>0){
 						$csearch=false;
