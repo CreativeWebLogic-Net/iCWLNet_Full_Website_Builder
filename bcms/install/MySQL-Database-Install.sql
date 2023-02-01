@@ -8,7 +8,7 @@ SET time_zone = "+00:00";
 
 --
 CREATE DATABASE IF NOT EXISTS `cwy0ek0e_bubblelite2` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `cwy0ek0e_bubblelite2`;
+USE `bubblelite2`;
 
 -- --------------------------------------------------------
 
