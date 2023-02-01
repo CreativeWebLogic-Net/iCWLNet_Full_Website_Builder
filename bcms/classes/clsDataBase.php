@@ -16,9 +16,9 @@
 		public $log="";
 		var $log_text="";
 		var $db_type_list=array("MySQL","Sqlite","pgSQL");
-		//var $current_db_type="MySQL";
+		var $current_db_type="MySQL";
 		//var $current_db_type="Sqlite";
-		var $current_db_type="pgSQL";
+		//var $current_db_type="pgSQL";
 		var $num_rows=0;
 	
 	
@@ -1311,17 +1311,16 @@
 			$this->host_name=gethostname();
 			$DB=array();
 			
-			$DB['server_tag']="db-default.php";
-			$DB['server_desc']="Private Server";
-			$DB['current_dir']="/var/www/html";
-			$DB['server_number']=4;
+			$DB['server_tag']="db-icwl.php";
+			$DB['server_desc']="WHM Reseller Server";
+			$DB['current_dir']="/home2/icwl0738/repositories/iCWLNet_Full_Website_Builder";
+			$DB['server_number']=2;
 			$DB['hostname']="localhost";
-			$DB['usernamedb']="Edit This";
-			$DB['passworddb']="Edit This";
-			$DB['dbName']="bubblelite2";
-			$DB['dbNames']=array('bubblelite2','takebookings','partnerspro','smsg');
-			$server_login["db-linode.php"]=array('server_tag'=>$DB['server_tag'],'server_desc'=>$DB['server_desc'],'current_dir'=>$DB['current_dir'],'server_number'=>$DB['server_number'],'hostname'=>$DB['hostname'],'usernamedb'=>$DB['usernamedb'],'passworddb'=>$DB['passworddb'],'dbName'=>$DB['dbName'],'dbNames'=>$DB['dbNames']);
-
+			$DB['usernamedb']='icwl0738_bubblel';
+			$DB['passworddb']='dfa456%$d';
+			$DB['dbName']="icwl0738_bubblelite2";
+			$DB['dbNames']=array('icwl0738_bubblelite2','icwl0738_takebookings','icwl0738_partnerspro','icwl0738_smsg');
+					
 						
 				
 				
