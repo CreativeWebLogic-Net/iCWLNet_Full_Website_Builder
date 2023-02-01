@@ -238,7 +238,7 @@
 				if($this->current_db_type=="MySQL"){
 					$this->log->general("Connection failed: " . $this->links->connect_error,3);
 					$this->log->general("m->Connection Success: ".var_export($this->links,true),1);
-					$this->result->reset();
+					//$this->result->reset();
 					$this->num_rows=$this->result->num_rows;
 				}elseif($this->current_db_type=="Sqlite"){
 					
