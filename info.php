@@ -1,4 +1,4 @@
-<pre>
+Hello World<pre>
 <?php
 	echo"<br>\ncurrent server<br>\n";
 	print $_SERVER['SERVER_NAME']."-<br>";
