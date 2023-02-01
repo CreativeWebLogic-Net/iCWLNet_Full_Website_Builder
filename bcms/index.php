@@ -37,7 +37,7 @@
 	$current_dir=pathinfo(__DIR__);
 	$app_data['current_dir']=$current_dir;
 	//print_r($current_dir);
-	//echo"0001-----------------------------------------------------------------------------\n";
+	echo"0001-----------------------------------------------------------------------------\n";
 	//----------------------------------static asset files------------------------------
 	$app_data['asset-severs'][0]='https://assets.w-d.biz/'; // linode server
 	$app_data['asset-severs'][1]='https://spaces.auseo.net/'; // digital ocean custom server
