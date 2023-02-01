@@ -1321,7 +1321,7 @@
 			$DB['dbName']="icwl0738_bubblelite2";
 			$DB['dbNames']=array('icwl0738_bubblelite2','icwl0738_takebookings','icwl0738_partnerspro','icwl0738_smsg');
 			$server_login[$DB['server_tag']]=array('server_tag'=>$DB['server_tag'],'usernamedb'=>$DB['usernamedb'],'passworddb'=>$DB['passworddb'],'server_desc'=>$DB['server_desc'],'current_dir'=>$DB['current_dir'],'server_number'=>$DB['server_number'],'hostname'=>$DB['hostname'],'usernamedb'=>$DB['usernamedb'],'passworddb'=>$DB['passworddb'],'dbName'=>$DB['dbName'],'dbNames'=>$DB['dbNames']);	
-						
+			echo"-1----------------------\n\n";			
 				
 				
 			if(count($DB)>0){
