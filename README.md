@@ -10,3 +10,10 @@
  MongoDB<br>
  MS SQL Server Express<br>
  MS SQL Server 2019<br>
+ Oracle<br>
+ Google Cloud Big Query<br>
+ Railway<br>
+ jfrog<br>
+ render pgSQL<br>
+ 
+ 
