@@ -28,7 +28,7 @@
         $DB['passworddb']='DickSux5841';
         $DB['dbName']='cwy0ek0e_bubblelite2';
         $DB['dbNames']=array('cwy0ek0e_bubblelite2','cwy0ek0e_takebookings','cwy0ek0e_partnerspro','cwy0ek0e_smsg');
-        
+        */
         $DB['server_tag']="db-localhost.php";
         $DB['server_desc']="Xampp Localhost";
         $DB['current_dir']="D:\Documents\Projects\Easy Bubble CMS\GitHub\iCWLNet_Central_Administration";
@@ -37,17 +37,6 @@
         $DB['usernamedb']='cwy0ek0e_bubblel';
         $DB['passworddb']='DickSux5841';
         $DB['dbName']='bubblelite2';
-        */
-
-
-        $DB['server_tag']="db-mr-cpanel.php";
-        $DB['server_desc']="CPanel Master Reseller";
-        $DB['current_dir']="/home/danielruul78/public_html";
-        $DB['server_number']=15;
-        $DB['hostname']="smooth-host.info";
-        $DB['usernamedb']='sitemanage_danielruul78';
-        $DB['passworddb']='DickSux5841*';
-        $DB['dbName']='sitemanage_bubblelite2';
         //$DB['dbNames']=array('cwy0ek0e_bubblelite2','cwy0ek0e_takebookings','cwy0ek0e_partnerspro','cwy0ek0e_smsg');
         
     }
