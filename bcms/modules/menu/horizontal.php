@@ -13,6 +13,13 @@
 		}else{
 			$sql="SELECT URI,MenuTitle FROM content_pages WHERE Menu_Hide='No' AND (Exposure='Public' OR Exposure='Both') AND module_viewsID IN (SELECT module_viewsID FROM module_views_menu WHERE Exposure='Public' OR Exposure='Both') AND languagesID=".LANGUAGESID." AND (domainsID=".DOMAINSID." OR domainsID=0) ORDER BY Sort_Order";
 		}*/
+		if(isset($domain_data["original_db"])){
+			$domain_name=$domain_data["original_db"]['Name'];
+		}else{
+			$domain_name=$domain_data["db"]['Name'];
+		}
+
+
 		if($_SESSION['membersID']>0){
 			
 			$sql="SELECT URI AS uri,MenuTitle AS menutitle,id AS content_pagesid FROM content_pages WHERE Menu_Hide='No' AND (Exposure='Member' OR Exposure='Both')";
@@ -36,9 +43,9 @@
 			//print_r($content_data);
 			if($content_data["content_pagesid"]>0){
 				//print $sql."\n";
-				?><a id="link-item-id"  class="link-item-cl" href="http://<?php print $domain_data["db"]['Name'].$app_data['ROOTDIR']."index.php?cpid=".$data["content_pagesid"];?>"><?php print $data["menutitle"];?></a><?php
+				?><a id="link-item-id"  class="link-item-cl" href="http://<?php print $domain_name.$app_data['ROOTDIR']."index.php?cpid=".$data["content_pagesid"];?>"><?php print $data["menutitle"];?></a><?php
 			}else{
-				?><a id="link-item-id"  class="link-item-cl" href="http://<?php print $domain_data["db"]['name'].$data["uri"];?>"><?php print $data["menutitle"];?></a><?php
+				?><a id="link-item-id"  class="link-item-cl" href="http://<?php print $domain_name.$data["uri"];?>"><?php print $data["menutitle"];?></a><?php
 			}
 		}
 	}else{

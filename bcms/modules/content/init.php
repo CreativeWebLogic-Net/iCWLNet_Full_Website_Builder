@@ -9,7 +9,7 @@
 			$content_data["db"]=$content_domain_data["db"];
 		}
 	}
-	
+		
 	
 	//---------------------------------------------------------------
 	//echo"--5555---------------------------------------------------------------------------\n";
@@ -85,7 +85,7 @@
 	}
 	*/
 	//echo"--654321----------".$sql."--------------".var_export($content_data,true)."------------------".var_export($content_data_uri,true)."---------------------------------\n";
-
+	
 	$OriginalPageName=$TotalPageName;
 	if(substr($TotalPageName,strlen($TotalPageName)-1)!="/"){
 		$TotalPageName.="/";
@@ -104,51 +104,64 @@
 		//if(count($content_domain_data["db"])==0){
 			if(isset($domain_user_data)>0){
 				if(count($domain_user_data)>0){
-					
-					$sql="SELECT * FROM content_pages WHERE module_viewsID='25' AND domainsID=".$domain_data['id']." AND languagesID=".$_SESSION['LanguagesID']." LIMIT 0,1";
-					$rslt=$r->RawQuery($sql);
-					if($r->NumRows($rslt)>0){
-						$csearch=false;
-						$notfound=false;
-						if(!defined("PAGENAME")){
-							define('PAGENAME',$TotalPageName);
-							$content_data["PAGENAME"]=$TotalPageName;
-						}
-						
-						$content_data["db"]=$r->Fetch_Assoc($rslt);	
-						
-						$sql="SELECT * FROM mod_business_categories WHERE id=".$domain_user_data['mod_business_categoriesID'];
-					
+					if(isset($domain_data["db"]['id'])){
+						$sql="SELECT * FROM content_pages WHERE module_viewsID='25' AND domainsID=".$domain_data["db"]['id']." AND languagesID=".$_SESSION['LanguagesID']." LIMIT 0,1";
 						$rslt=$r->RawQuery($sql);
-						$bizcat_data["db"]=$r->Fetch_Assoc(rslt);	
+						if($r->NumRows($rslt)>0){
+							$csearch=false;
+							$notfound=false;
+							if(!defined("PAGENAME")){
+								define('PAGENAME',$TotalPageName);
+								$content_data["PAGENAME"]=$TotalPageName;
+							}
+							
+							$content_data["db"]=$r->Fetch_Assoc($rslt);	
+							
+							$sql="SELECT * FROM mod_business_categories WHERE id=".$domain_user_data['mod_business_categoriesID'];
 						
-						$content_data['Meta_Title']=$domain_user_data['name']." - ".$bizcat_data['CategoryTitle']." - ".$content_data['Meta_Title'];
+							$rslt=$r->RawQuery($sql);
+							$bizcat_data["db"]=$r->Fetch_Assoc(rslt);	
+							
+							$content_data['Meta_Title']=$domain_user_data['name']." - ".$bizcat_data['CategoryTitle']." - ".$content_data['Meta_Title'];
+						}
 					}
+					
 				}
 			}
 			//echo"--66---------------------------------------------------------------------------\n";
 			//print_r($domain_data);
 			//print_r($content_data);
 			//print "-|-".$domain_data["db"]["SEOFriendly"]."-|-";
-			if($domain_data["db"]["SEOFriendly"]=="No"){
-				if($content_data["content_pagesID"]>0){
-					$sql="SELECT * FROM content_pages WHERE id='".$content_data["content_pagesID"]."' LIMIT 0,1";
-				}else{
-					$sql="SELECT * FROM content_pages WHERE HomePage='Yes' LIMIT 0,1";
+			$sql="";
+			if(isset($domain_data["db"]["SEOFriendly"])){
+				if($domain_data["db"]["SEOFriendly"]=="No"){
+					if($content_data["content_pagesID"]>0){
+						$sql="SELECT * FROM content_pages WHERE id='".$content_data["content_pagesID"]."' LIMIT 0,1";
+					}else{
+						$sql="SELECT * FROM content_pages WHERE HomePage='Yes' LIMIT 0,1";
+					}
+				}elseif($domain_data["db"]["SEOFriendly"]=="Yes"){
+					//print_r($content_data["URI"]);
+					//$sql="SELECT DISTINCT * FROM content_pages WHERE URI='".$content_data["URI"]."'  LIMIT 0,1";
+					$sql="SELECT DISTINCT * FROM content_pages WHERE URI='".$content_data["URI"]."'";
+					
 				}
-			}elseif($domain_data["db"]["SEOFriendly"]=="Yes"){
-				//print_r($content_data["URI"]);
-				//$sql="SELECT DISTINCT * FROM content_pages WHERE URI='".$content_data["URI"]."'  LIMIT 0,1";
-				$sql="SELECT DISTINCT * FROM content_pages WHERE URI='".$content_data["URI"]."'";
-				
+			}elseif($content_data["content_pagesID"]>0){
+				$sql="SELECT * FROM content_pages WHERE id='".$content_data["content_pagesID"]."' LIMIT 0,1";
+			}else{
+				$sql="SELECT * FROM content_pages WHERE HomePage='Yes' LIMIT 0,1";
 			}
+			
 			//$sql="SELECT * FROM content_pages WHERE URI='".$OriginalPageName."' AND domainsID=0 AND languagesID=".$_SESSION['LanguagesID']." LIMIT 0,1";
 			//print "-i-|-".$sql."--|-";
+			
 			$rslt=$r->RawQuery($sql);
-			$content_data['db']=$r->Fetch_Assoc($rslt);
+			//$content_data['db']=$r->Fetch_Assoc($rslt);
+			$num_rows=0;
 			$num_rows=$r->NumRows($rslt);
-			/*
-			if($r->NumRows($rslt)>0){
+			//print_r($content_data['db']);
+			
+			if($num_rows>0){
 				
 				define('PAGENAME',$OriginalPageName);
 				$content_data['PAGENAME']=$OriginalPageName;
@@ -156,8 +169,8 @@
 				$content_data["content_pagesID"]=$content_data['db']['id'];
 				$notfound=false;
 				$csearch=false;
-			}*/
-
+			}
+			
 			$log->general("-Content Search-",1);
 			
 			//echo"--67---------y-|-".$csearch."-|------------|--".var_export($content_data,true)."-|-----------------------------------------------end--\n";
@@ -200,6 +213,7 @@
 					}
 				};
 			};
+			
 			//print_r($content_data);
 			//68-------".$sql."-----[".$notfound."]---------------------------------------------------------------\n";
 			if($notfound){
@@ -273,7 +287,7 @@
 				$pre_file=$module_data["db"]['pre_filename'];
 			if($pre_file!=""){
 				$lfile=$app_data['MODULEBASEDIR'].$module_data["db"]['Dir']."/".$pre_file;
-				print $lfile;
+				//print $lfile;
 				if (file_exists($lfile)) {
 					include($lfile);
 				}else{

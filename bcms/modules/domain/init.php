@@ -1,16 +1,19 @@
 <?php
 	//echo"--730001---------------------------------------------------------------------------\n";
+	/*
 	$sql="SELECT DISTINCT * FROM domains WHERE Name='localhost'";
 	//print $sql."\n\n<br><br>999\n\n";
 	$rslt=$r->RawQuery($sql);
 	$row = $r->Fetch_Array();
+	*/
 	//$row =array();
 	//print_r($row);
 	//echo"--73001---------------------------------------------------------------------------\n";
 	$log->general("-Domain Module Loading-",1);
 	//echo"--73---------------------------------------------------------------------------\n";
 	//$current_domain=eregi_replace("www\.","",$_SERVER['HTTP_HOST']);
-	$current_domain= str_replace("www.", "",$_SERVER['HTTP_HOST']);
+	$current_domain= str_replace('www.', "",$_SERVER['HTTP_HOST']);
+	
 	//$current_domain=$_SERVER['HTTP_HOST'];
 	$log->general("-Domain Loading-".$current_domain."|",1);
 	//define('DOMAINNAME',$current_domain);
@@ -20,6 +23,7 @@
 	}else{
 		$TargetHost=$current_domain;
 	}
+	
 	//print $TargetHost;
 	$content_data["TargetHost"]=$TargetHost;
 	$content_data["original_domain"]=$current_domain;
@@ -34,6 +38,7 @@
 	$csearch=true;
 	$totalcount=0;
 	$num_rows=0;
+	$domain_data["db"]=array();
 	$log->general("1 In Domain Counting Down->".$csearch."->".$TotalDomainName,3);
 	//echo"--4411108-------------------------".$csearch."--------------------------------------------------\n";
 	while($csearch){
@@ -45,18 +50,24 @@
 		}
 		$totalcount++;
 		if($TotalDomainName!=""){
+			
 			//echo"\n\n--22222-------------------------".$csearch."--------------------------------------------------\n";
 			
 			//$sql="SELECT DISTINCT * FROM domains WHERE Name='".$TotalDomainName."' LIMIT 0,1";
 			$sql="SELECT DISTINCT * FROM domains WHERE Name='".$TotalDomainName."'";
 			//$sql="SELECT DISTINCT * FROM clients";
 			//$sql="SELECT COUNT(*) AS total FROM content_pages";
-			//print $sql."\n\n<br><br>999\n\n";
+			
 			//$csearch=false;
 			$log->general("1 In Domain Counting Down->".$sql,3);
 			$rslt=$r->RawQuery($sql);
-			$row = $r->Fetch_Assoc();
-			$domain_data["db"]=$row;
+			$num_rows=$r->NumRows($rslt);
+			if($num_rows>0){
+				$row = $r->Fetch_Assoc();
+				$domain_data["db"]=$row;
+				$csearch=false;
+			}
+			
 			/*
 			while ($row = $r->Fetch_Array()) {
 				//echo "{$row['id']} {$row['name']} {$row['email']} \n";
@@ -105,12 +116,13 @@
 					$rslt=$r->RawQuery($sql);
 					$num_rows=$r->NumRows($rslt);
 					if($num_rows>0){
+						$domain_data["original_db"]=$domain_data["db"];
 						$domain_data["db"]=$r->Fetch_Assoc();//reset to mirror site details
 						$log->general("Domain zr->".var_export($domain_data,true),3);
 					}
 				}
 			}
-			
+			//print_r($domain_data);
 			$log->general("Domain br->".var_export($domain_data,true),3);
 				
 				//if(!defined(DOMAINSID)) define('DOMAINSID',$domain_data['id']);
@@ -130,7 +142,7 @@
 				$tmp=($x!=1 ? '.':""); 
 				$TotalDomainName.=$tmp.$TArr[$x];
 			}
-			////echo"--".$TotalDomainName;
+			//echo"--".$TotalDomainName;
 			//if($TotalDomainName!="localhost"){
 			$count=strpos($TotalDomainName,".");
 			//print_r($matches);
@@ -149,6 +161,7 @@
 	
 	$domain_data["TotalDomainName"]=$TotalDomainName;
 	$domain_data["DomainVariableArray"]=$DomainVariableArray;
+	//print_r($domain_data);
 	//echo"--744------------------------------";//.var_export($DomainVariableArray,true)."---------------------------------------------\n";
 	$log->general("Domain Ending->",3);
 	$log->general("Sub Domain Check->".var_export($DomainVariableArray,true),3);
@@ -195,5 +208,5 @@
 	$log->general("Domain Complete->",3);
 	$log->general("\n",3);
 	//echo "--8887654321---------------------------------".var_export($content_domain_data,true)."------------------------------------------\n";
-	//print_r($domain_data);
+	
 ?>

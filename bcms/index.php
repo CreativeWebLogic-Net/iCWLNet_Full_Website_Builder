@@ -23,12 +23,17 @@
 	// root data types
 	//----------------------------------------------------------------
 	$module_data=array();
+	$module_data['db']=array();
 	$domain_user_data=array();
 	$domain_data=array();
+	$domain_data['db']=array();
 	$app_data=array();
 	$template_data=array();
+	$template_data['db']=array();
 	$content_data=array();
+	$content_data['db']=array();
 	$text_data=array();
+	$text_data['db']=array();
 	$bizcat_data=array();
 	$sidebar_data=array();
 	$news_data=array();
@@ -48,8 +53,10 @@
 	$app_data['asset-severs'][6]='https://assets.icwl.me/'; //hostgator reseller server
 	$app_data['asset-severs'][7]='https://static-assets.w-d.biz/'; //cloud unlimited server
 	$app_data['asset-severs'][8]='https://assets.i-n.club/'; //ionos unlimited server
+	$app_data['asset-severs'][9]='http://assets.creativeweblogic.net'; //ionos unlimited server
+	$app_data['asset-severs'][10]='https://static-assets.site/'; //ionos unlimited server
 
-	$app_data['asset-sever']=$app_data['asset-severs'][0];
+	$app_data['asset-sever']=$app_data['asset-severs'][10];
 	//----------------------------------------------------------------
 	//if(isset($_GET['cpid'])){
 	$root_array=explode('/',$_SERVER['PHP_SELF']);
@@ -136,10 +143,10 @@
 		$log->general("-clsVariables Loaded-",1);
 		
 		$r=new clsDatabaseInterface($log);
+		$r->Add_App_Data($app_data);
 		$log->general("-clsDI Started-",1);
 		$log->general("\n",1);
 		$r->Set_Log($log);
-		
 		//test_pgsql();
 
 		//echo"0-----------------------------------------------------------------------------\n";
@@ -181,7 +188,7 @@
 		$log->general("-Domain pre Load-".$dest_file,3);
 		include($dest_file);
 		$log->general("-Domain fin Load-".$dest_file,3);
-		//////echo"--45---------------------------------------------------------------------------\n";
+		//echo"--45---------------------------------------------------------------------------\n";
 		//$log->general("-Applications-".$domain_data['applicationsID'],1);
 		
 		$log->general("-Domain init Finished Loaded-",1);
@@ -190,13 +197,17 @@
 		include($app_data['MODULEBASEDIR']."language/init.php");
 		$log->general("\n",1);
 		$log->general("-Language Loaded-",1);
+		
 		////echo"--5-5--------------------------------------------------------------------------\n";
+		
 		include($app_data['MODULEBASEDIR']."content/init.php");
 		$log->general("-123-Content Loaded",1);
+		
 		////echo"--6---------------------------------------------------------------------------\n";
 		include($app_data['MODULEBASEDIR']."template/init.php");
 		//echo"\n\n-7--------------------------------------------------------\n\n";
 		$log->general("667-Template Loaded-",1);
+		//print "jj\n\n<br><br>9998\n\n";
 		//print_r($template_data);
 		include($app_data['MODULEBASEDIR']."language/definitions.php");
 		$log->general("-Language Defs Loaded-",1);
@@ -220,7 +231,7 @@
 		
 		try{
 			//echo"\n\n-9--------------------------------------------------------\n\n";
-			//print_r($template_data);
+			print_r($template_data);
 			//ob_end_flush();
 			$log->general("-Start line-",3);
 			//$log->general("-Loaded template const",1);
@@ -237,6 +248,7 @@
 			}else{
 				throw new Exception('Template not loading.');
 			}
+			
 			//echo"\n\n-11--------------------------------------------------------\n\n";
 		}catch(Exception $e){
 			$log->display_all();

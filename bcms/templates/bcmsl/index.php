@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><?php print $content_data['Meta_Title'];?></title>
-<meta name="DC.Title" content="<?php print $content_data['Meta_Title'];?>" />
-<meta name="description" content="<?php print $content_data['Meta_Description'];?>" />
-<meta name="keywords" content="<?php print $content_data['Meta_Keywords'];?>" />
+<title><?php print $content_data['db']['Meta_Title'];?></title>
+<meta name="DC.Title" content="<?php print $content_data['db']['Meta_Title'];?>" />
+<meta name="description" content="<?php print $content_data['db']['Meta_Description'];?>" />
+<meta name="keywords" content="<?php print $content_data['db']['Meta_Keywords'];?>" />
 <link rel='shortcut icon' type='image/x-icon' href='<?php print $app_data['asset-sever']; ?>bcms/assets/favicon.ico' />
-<?php print $domain_data['GSiteMapMeta'];?>
+<?php print $domain_data['db']['GSiteMapMeta'];?>
 <link href="<?php print $app_data['asset-sever']; ?>bcms/templates/bcmsl/css/general.css" rel="stylesheet" type="text/css" />
 
 </head>
@@ -22,7 +22,7 @@
     	  <br />
    	    <img src="<?php print $app_data['asset-sever']; ?>bcms/templates/bcmsl/images/bubblecmslite-logo.jpg" width="478" height="58" alt="Bubble CMS Lite - Manage Multiple Websites" /></div>
       <div id="MainMenu">
-        <div id="MainMenuCenter"><? include($app_data['MODULEBASEDIR']."menu/horizontal.php");?></div>
+        <div id="MainMenuCenter"><?php include($app_data['MODULEBASEDIR']."menu/horizontal.php");?></div>
             <div id="DivClear"></div>
       </div>
         <div id="BelowMainMenu">
@@ -49,17 +49,17 @@
            	  <strong>Latest News</strong>
           </div>
             <div id="NewsBody">
-            	<? include($app_data['MODULEBASEDIR']."news/list-items.php");?>
+            	<?php include($app_data['MODULEBASEDIR']."news/list-items.php");?>
             </div>
         </div>
         <div id="DivClear">
         </div>
         <div id="MainBodyText">
         	<h1 class="PageTitle">
-				<?php print $content_data['Title'];?>
+				<?php print $content_data['db']['Title'];?>
             </h1>
             <div>
-			<? include($app_data['MODULEBASEDIR']."content/display.php");?>     
+			<?php include($app_data['MODULEBASEDIR']."content/display.php");?>     
              </div>
              
         </div>
@@ -92,6 +92,6 @@
 </tr>
 </table>
 
-<?php print $domain_data['Analytics']?>
+<?php print $domain_data['db']['Analytics']?>
 </body>
 </html>

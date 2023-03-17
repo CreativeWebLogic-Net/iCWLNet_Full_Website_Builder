@@ -56,6 +56,11 @@
 				
 				//if($content_data["content_pagesID"]>0){
 					//print_r($domain_data);
+				if(isset($domain_data["original_db"])){
+					$domain_name=$domain_data["original_db"]['Name'];
+				}else{
+					$domain_name=$domain_data["db"]['Name'];
+				}
 				if($domain_data["db"]["SEOFriendly"]=="No"){
 					//print $sql."\n";
 					/*
@@ -69,13 +74,14 @@
 					print_r($data);
 					echo"-4-|--";
 					*/
-					$link_data='<a id="link-item-id"  class="link-item-cl" href="http://'.$domain_data["db"]['Name'].$app_data['ROOTDIR'].'index.php?cpid='.$data["content_pagesID"].'">'.$data["MenuTitle"].'</a>';
+					$link_data='<a id="link-item-id"  class="link-item-cl" href="http://'.$domain_name.$app_data['ROOTDIR'].'index.php?cpid='.$data["content_pagesID"].'">'.$data["MenuTitle"].'</a>';
 					/*
 					?><a id="link-item-id"  class="link-item-cl" href="http://<?php print $domain_data["db"]['Name'].$app_data['ROOTDIR']."index.php?cpid=".$data["content_pagesID"];?>"><?php print $data["MenuTitle"];?></a><?php
 					*/
 					print $link_data;
 				}else{
-					?><a id="link-item-id"  class="link-item-cl" href="http://<?php print $domain_data["db"]['Name'].$data["URI"];?>"><?php print $data["MenuTitle"];?></a><?php
+					
+					?><a id="link-item-id"  class="link-item-cl" href="http://<?php print $domain_name.$data["URI"];?>"><?php print $data["MenuTitle"];?></a><?php
 				}
 				
 			}
