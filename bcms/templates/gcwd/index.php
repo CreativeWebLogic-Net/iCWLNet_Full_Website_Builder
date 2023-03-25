@@ -16,7 +16,7 @@
 	<div id="MainBodyCentered">
     	<div id="CompleteHeader">
         	<div id="MainMenu">
-            	<? include($app_data['MODULEBASEDIR']."menu/horizontal.php");?>
+            	<?php include($app_data['MODULEBASEDIR']."menu/horizontal.php");?>
             </div>
         </div>
         <div id="BodyContent">

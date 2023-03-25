@@ -8,7 +8,6 @@
 <meta name="description" content="<?php print $content_data["db"]['meta_description'];?>" />
 <meta name="keywords" content="<?php print $content_data["db"]['meta_keywords'];?>" />
 <link rel='shortcut icon' type='image/x-icon' href='<?php print $app_data['asset-sever']; ?>bcms/assets/favicon.ico' />
-<?php print $domain_data["db"]['gsitemapmeta'];?>
 <link rel="stylesheet" type="text/css" href="<?php print $app_data['asset-sever']; ?>bcms/templates/dualdiagnosis_main/css/style.css" />
 </head>
 
@@ -20,14 +19,14 @@
    	      
     </ul>
   </div>
-  <div id="company_name"><a href="/"><?php print $domain_data["db"]['sitetitle']; ?></div>
+  <div id="company_name"><a href="/"><?php print $domain_data["db"]['SiteTitle']; ?></div>
   <div id="content_container">
     <div id="menu"><?php include($app_data['MODULEBASEDIR']."menu/horizontal.php");?> </div>
     <div id="main">
       
       <div id="first_post">
         <h1>
-          <?php print $content_data["db"]['title'];?>
+          <?php print $content_data["db"]['Title'];?>
         </h1>
          <?php include($app_data['MODULEBASEDIR']."content/display.php");?>
       </div>
@@ -49,6 +48,6 @@
   <div id="footer_right"><a href="http://cpanel-hosting.info/">CPanel Hosting</a></div>
   </div>  
 </div>
-<?php print $domain_data["db"]['analytics']?>
+<?php print $domain_data["db"]['Analytics']?>
 </body>
 </html>

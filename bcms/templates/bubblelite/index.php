@@ -37,12 +37,12 @@ $log->general("-ax Inside Template->",3);
         <div id="ContentHolder">
     		<div id="ContentBody">
             	<div id="LeftColumn">
-            	  <h2><?php print $content_data['db']['Title'];?></h2>{{test}}{{menu}}
+            	  <h2><?php print $content_data['db']['Title'];?></h2>
                 <?php
                     //$display_file=$app_data['MODULEBASEDIR']."content/display.php";
                     $display_file=$app_data['MODULEBASEDIR']."content/display.php";
                     //$display_file="";
-                    print $display_file;
+                    //print $display_file;
                     if(file_exists($display_file)){
                       $log->general("10 Loading Current Content->".$display_file,3);
                       include($display_file);

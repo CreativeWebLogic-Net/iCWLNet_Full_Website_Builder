@@ -1,4 +1,4 @@
-<?
+<?php
   //$sql="SELECT name,address,suburb,state,postcode,phone,fax,website,business_description FROM users WHERE id='".$domain_user_data['id']."'";
   $sql="SELECT name,address,suburb,state,postcode,phone,fax,website,business_description FROM users WHERE id='".$_SESSION['membersID']."'";
   //print $sql;
@@ -37,7 +37,7 @@ $rslt=$r->RawQuery($sql);
               <td width="65" bgcolor="#FFFFFF"><strong>Fax:</strong></td>
               <td width="121" bgcolor="#FFFFFF"><?php print $myrow[6]?></td>
             </tr>
-           <? 
+           <?php
 				if(isset($myrow[7])){
 					//if((preg_match(".",$myrow[7]))||($myrow[7]=="localhost"))){
 			?>
@@ -47,7 +47,7 @@ $rslt=$r->RawQuery($sql);
                 <?php print $myrow[7]?>
               </a></td>
               </tr>
-            <? 
+            <?php
 					//};
 				}; 
 			?>
@@ -56,6 +56,6 @@ $rslt=$r->RawQuery($sql);
             </table>
 <br>
             <br>
-			<?	
+			<?php
 		}
 	?>

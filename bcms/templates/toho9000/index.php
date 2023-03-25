@@ -5,9 +5,9 @@
 
 <title></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="DC.Title" content="<?php print $content_data['Meta_Title'];?>" />
-<meta name="description" content="<?php print $content_data['Meta_Description'];?>" />
-<meta name="keywords" content="<?php print $content_data['Meta_Keywords'];?>" />
+<meta name="DC.Title" content="<?php print $content_data['db']['Meta_Title'];?>" />
+<meta name="description" content="<?php print $content_data['db']['Meta_Description'];?>" />
+<meta name="keywords" content="<?php print $content_data['db']['Meta_Keywords'];?>" />
 <link rel='shortcut icon' type='image/x-icon' href='<?php print $app_data['asset-sever']; ?>bcms/templates/toho9000/favicon.ico' />
 <link href="<?php print $app_data['asset-sever']; ?>bcms/templates/toho9000/style.css" rel="stylesheet" type="text/css" />
 <META name="verify-v1" content="o0xWjUe0Pw3ZPJa46VdOUHkEhl8z2te5aFp2nK5VEWU=" />
@@ -65,7 +65,7 @@ a:active {
     <td height="139" colspan="2" valign="top"><img src="<?php print $app_data['asset-sever']; ?>bcms/templates/toho9000/Pics/toho9000layout2_05.gif" width="662" height="139" align="right"></td>
     <td valign="top"><img src="<?php print $app_data['asset-sever']; ?>bcms/templates/toho9000/Pics/toho9000layout2_06.gif" width="86" height="139"></td>
     </tr>
-  <tr><td><? include($app_data['MODULEBASEDIR']."menu/horizontal.php");?></td></tr>
+  <tr><td><?php include($app_data['MODULEBASEDIR']."menu/horizontal.php");?></td></tr>
   <tr>
     <td  colspan="3" valign="top">
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -91,5 +91,5 @@ a:active {
   
 </table>
 </center>
-<?php print $domain_data['Analytics']?></body>
+<?php print $domain_data['db']['Analytics']?></body>
 </html>

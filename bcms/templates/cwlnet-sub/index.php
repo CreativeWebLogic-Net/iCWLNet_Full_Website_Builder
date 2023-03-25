@@ -1,13 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title><?php print $content_data['Meta_Title'];?></title>
+<title><?php print $content_data['db']['Meta_Title'];?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="DC.Title" content="<?php print $content_data['Meta_Title'];?>" />
-<meta name="description" content="<?php print $content_data['Meta_Description'];?>" />
-<meta name="keywords" content="<?php print $content_data['Meta_Keywords'];?>" />
+<meta name="DC.Title" content="<?php print $content_data['db']['Meta_Title'];?>" />
+<meta name="description" content="<?php print $content_data['db']['Meta_Description'];?>" />
+<meta name="keywords" content="<?php print $content_data['db']['Meta_Keywords'];?>" />
 <link rel='shortcut icon' type='image/x-icon' href='<?php print $app_data['asset-sever']; ?>bcms/assets/favicon.ico' />
-<?php print $domain_data['GSiteMapMeta'];?>
+<?php print $domain_data['db']['GSiteMapMeta'];?>
 <link href="<?php print $app_data['asset-sever']; ?>bcms/templates/cwlnet-sub/css/general.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -34,7 +34,7 @@
         
         	</div>
             <div id="RightBodyContent">
-            <h2><?php print $content_data['Title'];?></h2>
+            <h2><?php print $content_data['db']['Title'];?></h2>
                 <?php include($app_data['MODULEBASEDIR']."content/display.php");?>
             
             </div>
@@ -52,6 +52,6 @@
             </div>
         </div>
 	</div>
- 	<?php print $domain_data['Analytics']?>
+ 	<?php print $domain_data['db']['Analytics']?>
 </body>
 </html>

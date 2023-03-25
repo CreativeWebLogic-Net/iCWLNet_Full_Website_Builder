@@ -21,7 +21,7 @@
 		$link_count++;
 	}
 	*/
-
+	//print_r($domain_data);
 	$log->general("7 Loading Current Menu->",3);
 	$first=true;
 	if(isset($domain_user_data)){
@@ -58,11 +58,13 @@
 					//print_r($domain_data);
 				if(isset($domain_data["original_db"])){
 					$domain_name=$domain_data["original_db"]['Name'];
+					$SEOFriendly=$domain_data["original_db"]['SEOFriendly'];
 				}else{
 					$domain_name=$domain_data["db"]['Name'];
+					$SEOFriendly=$domain_data["db"]['SEOFriendly'];
 				}
-				if($domain_data["db"]["SEOFriendly"]=="No"){
-					//print $sql."\n";
+				if($SEOFriendly=="No"){
+					//print "kk".$SEOFriendly."ww\n";
 					/*
 					?><a id="link-item-id"  class="link-item-cl" href="http://<?php print $domain_data["db"]['Name'].$app_data['ROOTDIR']."index.php?cpid=".$data["content_pagesID"];?>"><?php print $data["MenuTitle"];?></a><?php
 					
@@ -74,7 +76,7 @@
 					print_r($data);
 					echo"-4-|--";
 					*/
-					$link_data='<a id="link-item-id"  class="link-item-cl" href="http://'.$domain_name.$app_data['ROOTDIR'].'index.php?cpid='.$data["content_pagesID"].'">'.$data["MenuTitle"].'</a>';
+					$link_data='<a id="link-item-id"  class="link-item-cl" href="http://'.$domain_name.$app_data['ROOTDIR'].'index.php?guid=1&cpid='.$data["content_pagesID"].'">'.$data["MenuTitle"].'</a>';
 					/*
 					?><a id="link-item-id"  class="link-item-cl" href="http://<?php print $domain_data["db"]['Name'].$app_data['ROOTDIR']."index.php?cpid=".$data["content_pagesID"];?>"><?php print $data["MenuTitle"];?></a><?php
 					*/

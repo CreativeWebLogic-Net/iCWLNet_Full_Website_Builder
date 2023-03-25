@@ -2,7 +2,7 @@
 	$templatesID=0;
 	$domains_templatesID=0;
 	//set sql result non capitalized
-	print_r($content_data);
+	//print_r($content_data);
 	
 	if(isset($content_data["db"])){
 		
@@ -46,8 +46,8 @@
 					//echo $error_message;
 					$log->general($error_message,3);
 				}
-				echo "\n\n 123-------\n\n";
-				print_r($template_data);
+				//echo "\n\n 123-------\n\n";
+				//print_r($template_data);
 				$template_data['TEMPLATEPATH']=$app_data['APPBASEDIR']."templates/".$template_data["db"]['dir'];
 				$template_data['TEMPLATEDIR']=$template_data['TEMPLATEPATH'];
 			}else{

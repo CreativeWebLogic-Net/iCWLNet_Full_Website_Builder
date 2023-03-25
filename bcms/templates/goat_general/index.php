@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><?php print $content_data['Meta_Title'];?></title>
-<meta name="DC.Title" content="<?php print $content_data['Meta_Title'];?>" />
-<meta name="description" content="<?php print $content_data['Meta_Description'];?>" />
-<meta name="keywords" content="<?php print $content_data['Meta_Keywords'];?>" />
+<title><?php print $content_data['db']['Meta_Title'];?></title>
+<meta name="DC.Title" content="<?php print $content_data['db']['Meta_Title'];?>" />
+<meta name="description" content="<?php print $content_data['db']['Meta_Description'];?>" />
+<meta name="keywords" content="<?php print $content_data['db']['Meta_Keywords'];?>" />
 <link rel='shortcut icon' type='image/x-icon' href='<?php print $app_data['asset-sever']; ?>bcms/assets/favicon.ico' />
-<?php print $domain_data['GSiteMapMeta'];?>
+<?php print $domain_data['db']['GSiteMapMeta'];?>
 <link href="<?php print $app_data['asset-sever']; ?>bcms/templates/goat_general/css/general.css" rel="stylesheet" type="text/css" />
 <script src="<?php print $app_data['asset-sever']; ?>bcms/templates/goat_general/Scripts/AC_RunActiveContent.js" type="text/javascript"></script>
 <script src="<?php print $app_data['asset-sever']; ?>bcms/templates/goat_general/Scripts/function.js" type="text/javascript"></script>
@@ -28,16 +28,16 @@ body {
 	<div id="WhiteHeader">
         <div id="HeaderTop">      
             <div class="HeaderMenu">
-                <? include("modules/language/dropdown.php");?>
+                <?php include("modules/language/dropdown.php");?>
             </div>
         </div>
         <div id="HeaderBanner">
-	  <? include($template_data['TEMPLATEPATH']."includes/header.php");?>
+	  <?php include($template_data['TEMPLATEPATH']."includes/header.php");?>
       </div>
     </div>
     <div id="MenuHolder">
     	<div id="MainMenu">
-  		<? include($app_data['MODULEBASEDIR']."menu/horizontal.php");?>
+  		<?php include($app_data['MODULEBASEDIR']."menu/horizontal.php");?>
    	  </div>
          
     </div>
@@ -57,7 +57,7 @@ body {
             <div id="LeftPanelBodyHolder">
                 <div id="LeftPanelBodyBG">
                 	<div id="LeftPanelBodyBGGrey">
-                		<? include($app_data['MODULEBASEDIR']."news/list-items.php");?>
+                		<?php include($app_data['MODULEBASEDIR']."news/list-items.php");?>
                 	</div>
                 </div>
             </div>
@@ -68,10 +68,10 @@ body {
                 	<?php print $template_defs['welcome'];?><br />
                 </span>
                 <span class="SubTitle">
-                	<?php print $content_data['Title'];?>
+                	<?php print $content_data['db']['Title'];?>
                 </span>
                 <p class="MainText">
-                	<? include(MODULEBASEDIR."content/display.php");?>
+                	<?php include(MODULEBASEDIR."content/display.php");?>
                 </p>
             </div>
       </div>
@@ -95,6 +95,6 @@ body {
     	<? include("modules/language/sitemap.php");?>
     </div>
 </div>
-<?php print $domain_data['Analytics']?>
+<?php print $domain_data['db']['Analytics']?>
 </body>
 </html>

@@ -8,19 +8,19 @@ Licence URI: http://www.os-templates.com/template-terms
 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title><?php print $content_data['Meta_Title'];?></title>
+<title><?php print $content_data['db']['Meta_Title'];?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="DC.Title" content="<?php print $content_data['Meta_Title'];?>" />
-<meta name="description" content="<?php print $content_data['Meta_Description'];?>" />
-<meta name="keywords" content="<?php print $content_data['Meta_Keywords'];?>" />
-<?php print $domain_data['GSiteMapMeta'];?>
+<meta name="DC.Title" content="<?php print $content_data['db']['Meta_Title'];?>" />
+<meta name="description" content="<?php print $content_data['db']['Meta_Description'];?>" />
+<meta name="keywords" content="<?php print $content_data['db']['Meta_Keywords'];?>" />
+<?php print $domain_data['db']['GSiteMapMeta'];?>
 <link rel="stylesheet" href="<?php print $app_data['asset-sever']; ?>bcms/templates/darkness/layout/styles/layout.css" type="text/css" />
 </head>
 <body id="top">
 <div class="wrapper">
   <div id="header">
     <div id="logo">
-      <h1><?php print $content_data['Meta_Title'];?></h1>
+      <h1><?php print $content_data['db']['Meta_Title'];?></h1>
     </div>
     <div id="topnav">
       <?php include($app_data['MODULEBASEDIR']."menu/li-menu.php");?>
@@ -40,7 +40,7 @@ Licence URI: http://www.os-templates.com/template-terms
 <div class="wrapper">
   <div id="container">
     <div id="content">
-      <h1><?php print $content_data['Title'];?></h1>
+      <h1><?php print $content_data['db']['Title'];?></h1>
       <?php include($app_data['MODULEBASEDIR']."content/display.php");?>
     </div>
     

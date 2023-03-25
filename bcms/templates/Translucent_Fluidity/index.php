@@ -4,11 +4,11 @@
 <head>
 <title><?php print $content_data['Meta_Title'];?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="DC.Title" content="<?php print $content_data['Meta_Title'];?>" />
-    <meta name="description" content="<?php print $content_data['Meta_Description'];?>" />
-    <meta name="keywords" content="<?php print $content_data['Meta_Keywords'];?>" />
+    <meta name="DC.Title" content="<?php print $content_data['db']['Meta_Title'];?>" />
+    <meta name="description" content="<?php print $content_data['db']['Meta_Description'];?>" />
+    <meta name="keywords" content="<?php print $content_data['db']['Meta_Keywords'];?>" />
     <link rel='shortcut icon' type='image/x-icon' href='<?php print $app_data['asset-sever']; ?>bcms/assets/favicon.ico' />
-    <?php print $domain_data['GSiteMapMeta'];?>
+    <?php print $domain_data['db']['GSiteMapMeta'];?>
     <meta name="robots" content="all" />
     <meta name="generator" content="Bubble CMS Lite" />
 <link rel="stylesheet" type="text/css" href="<?php print $app_data['asset-sever']; ?>bcms/templates/Translucent_Fluidity/style.css" />
@@ -16,20 +16,20 @@
 <body>
 <!-- begin header -->
 <div id="header">
-<h1><?php print $domain_data['SiteTitle']; ?> </h1>
+<h1><?php print $domain_data['db']['SiteTitle']; ?> </h1>
 </div>
 <!-- end header -->
 
 <!-- begin top tabbed menu -->
 <ul id="nav">
-<? include($app_data['MODULEBASEDIR']."menu/li.php");?>
+<?php include($app_data['MODULEBASEDIR']."menu/li.php");?>
 </ul>
 <!--  end top menu -->
 <div id="container">
 <div id="content">
 <!-- begin editing main content -->
-<h2><?php print $content_data['Title'];?></h2>
-<p><? include($app_data['MODULEBASEDIR']."content/display.php");?></p>
+<h2><?php print $content_data['db']['Title'];?></h2>
+<p><?php include($app_data['MODULEBASEDIR']."content/display.php");?></p>
 <!-- end editing content -->
 </div>
 <!-- begin footer -->
@@ -39,6 +39,6 @@
 </div>
 <!-- end footer -->
 </div>
-<?php print $domain_data['Analytics']?>
+<?php print $domain_data['db']['Analytics']?>
 </body>
 </html>

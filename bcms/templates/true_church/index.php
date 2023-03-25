@@ -5,12 +5,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
 		
-		<title><?php print $content_data['Meta_Title'];?></title>
+		<title><?php print $content_data['db']['Meta_Title'];?></title>
 
    
-		<meta name="DC.Title" content="<?php print $content_data['Meta_Title'];?>" />
-		<meta name="description" content="<?php print $content_data['Meta_Description'];?>" />
-		<meta name="keywords" content="<?php print $content_data['Meta_Keywords'];?>" />
+		<meta name="DC.Title" content="<?php print $content_data['db']['Meta_Title'];?>" />
+		<meta name="description" content="<?php print $content_data['db']['Meta_Description'];?>" />
+		<meta name="keywords" content="<?php print $content_data['db']['Meta_Keywords'];?>" />
 		<link rel='shortcut icon' type='image/x-icon' href='<?php print $app_data['asset-sever']; ?>bcms/assets/favicon.ico' />
 		<meta name="robots" content="all" />
 		<meta name="generator" content="Bubble CMS Lite" />
@@ -29,7 +29,7 @@
 		<script src="js/ie-support/html5.js"></script>
 		<script src="js/ie-support/respond.js"></script>
 		<![endif]-->
-		<?php print $domain_data['GSiteMapMeta'];?>
+		<?php print $domain_data['db']['GSiteMapMeta'];?>
 	</head>
 
 
@@ -39,13 +39,13 @@
 				<div class="container">
 					<a href="#" class="branding">
 						<img src="<?php print $app_data['asset-sever']; ?>bcms/templates/true_church/images/logo.png" alt="" class="logo">
-						<h1 class="site-title"><?php print $content_data['Meta_Title'];?></h1>
+						<h1 class="site-title"><?php print $content_data['db']['Meta_Title'];?></h1>
 					</a>
 
 					<div class="main-navigation">
 						<button class="menu-toggle"><i class="fa fa-bars"></i> Menu</button>
 						<ul class="menu">
-							<? include($app_data['MODULEBASEDIR']."menu/horizontal.php");?>
+							<?php include($app_data['MODULEBASEDIR']."menu/horizontal.php");?>
 							<!--
 							<li class="menu-item current-menu-item"><a href="index.html">Homepage <small>Lorem ipsum</small></a></li>
 							<li class="menu-item"><a href="#">Pastors <small>Cupidatat non proident</small></a></li>
@@ -125,10 +125,10 @@
 						<div class="row">
 							<div class="col-md-6">
 								<h2 class="section-title">Upcoming events</h2>
-								<? include($app_data['MODULEBASEDIR']."content/display.php");?>
+								<?php include($app_data['MODULEBASEDIR']."content/display.php");?>
 							</div>
 							<div >
-								<? include($app_data['MODULEBASEDIR']."news/list-items.php");?>
+								<?php include($app_data['MODULEBASEDIR']."news/list-items.php");?>
 							</div>
 						</div> <!-- .row -->
 					</div> <!-- .container -->
@@ -168,7 +168,7 @@
 		<script src="<?php print $app_data['asset-sever']; ?>bcms/templates/true_church/js/jquery-1.11.1.min.js"></script>
 		<script src="<?php print $app_data['asset-sever']; ?>bcms/templates/true_church/js/plugins.js"></script>
 		<script src="<?php print $app_data['asset-sever']; ?>bcms/templates/true_church/js/app.js"></script>
-		<?php print $domain_data['Analytics']?>
+		<?php print $domain_data['db']['Analytics']?>
 	</body>
 
 </html>

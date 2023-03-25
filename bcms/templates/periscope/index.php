@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><?php print $content_data['Meta_Title'];?></title>
-<meta name="DC.Title" content="<?php print $content_data['Meta_Title'];?>" />
-<meta name="description" content="<?php print $content_data['Meta_Description'];?>" />
-<meta name="keywords" content="<?php print $content_data['Meta_Keywords'];?>" />
-<link rel="alternate" type="application/rss+xml" title="<?php print $domain_data['rss_title']?>" href="/rss/" />
+<title><?php print $content_data['db']['Meta_Title'];?></title>
+<meta name="DC.Title" content="<?php print $content_data['db']['Meta_Title'];?>" />
+<meta name="description" content="<?php print $content_data['db']['Meta_Description'];?>" />
+<meta name="keywords" content="<?php print $content_data['db']['Meta_Keywords'];?>" />
+<link rel="alternate" type="application/rss+xml" title="<?php print $domain_data['db']['rss_title']?>" href="/rss/" />
 <link rel='shortcut icon' type='image/x-icon' href='<?php print $app_data['asset-sever']; ?>bcms/assets/favicon.ico' />
-<?php print $domain_data['GSiteMapMeta'];?>
+<?php print $domain_data['db']['GSiteMapMeta'];?>
 
 <link href="<?php print $app_data['asset-sever']; ?>bcms/templates/periscope/css/general.css" rel="stylesheet" type="text/css" />
 </head>
@@ -18,24 +18,24 @@
 		<div id="ContentContainer">
             <div id="HeaderContainer<?=rand(1,4);?>">
             	<div id="MainMenu">
-                	<? include($app_data['MODULEBASEDIR']."/menu/horizontal.php");?>
+                	<?php include($app_data['MODULEBASEDIR']."/menu/horizontal.php");?>
                 </div>
             </div>
             <div id="BodyText">
             	<div id="LeftColumnText">
-                	<h1 class="HeadingText"><?php print $content_data['Title'];?></h1>
-           		  	<? include($app_data['MODULEBASEDIR']."/content/display.php");?>
+                	<h1 class="HeadingText"><?php print $content_data['db']['Title'];?></h1>
+           		  	<?php include($app_data['MODULEBASEDIR']."/content/display.php");?>
                 </div>
                 <div id="RightColumnText">
                 
-                	<?
+                	<?php
                         if(count($sidebar_data)>0){
                             ?>
                                 <div id="SideBar" >
                                 
-                                <? include($app_data['MODULEBASEDIR']."/content/sidebar.php");?>
+                                <?php include($app_data['MODULEBASEDIR']."/content/sidebar.php");?>
                                 </div>
-                            <?
+                            <?php
                         }
                     ?>
               	</div>
@@ -64,6 +64,6 @@
             </div>
 		</div>
 	</div>
-    <?php print $domain_data['Analytics']?>
+    <?php print $domain_data['db']['Analytics']?>
 </body>
 </html>

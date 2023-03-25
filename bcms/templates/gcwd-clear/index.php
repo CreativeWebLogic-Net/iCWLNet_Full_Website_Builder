@@ -3,11 +3,11 @@
 <head>
 <title><?php print $content_data['Meta_Title'];?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="DC.Title" content="<?php print $content_data['Meta_Title'];?>" />
-<meta name="description" content="<?php print $content_data['Meta_Description'];?>" />
-<meta name="keywords" content="<?php print $content_data['Meta_Keywords'];?>" />
+<meta name="DC.Title" content="<?php print $content_data['db']['Meta_Title'];?>" />
+<meta name="description" content="<?php print $content_data['db']['Meta_Description'];?>" />
+<meta name="keywords" content="<?php print $content_data['db']['Meta_Keywords'];?>" />
 <link rel='shortcut icon' type='image/x-icon' href='<?php print $app_data['asset-sever']; ?>bcms/assets/favicon.ico' />
-<?php print $domain_data['GSiteMapMeta'];?>
+<?php print $domain_data['db']['GSiteMapMeta'];?>
 <link href="<?php print $app_data['asset-sever']; ?>bcms/templates/gcwd/css/general.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -15,12 +15,12 @@
 	<div id="MainBodyCentered">
     	<div id="CompleteHeader">
         	<div id="MainMenu">
-            	<? include($app_data['MODULEBASEDIR']."menu/horizontal.php");?>
+            	<?php include($app_data['MODULEBASEDIR']."menu/horizontal.php");?>
             </div>
         </div>
         <div id="BodyContent">
         	
-            <h2><?php print $content_data['Title'];?></h2>
+            <h2><?php print $content_data['db']['Title'];?></h2>
                 <?php include($app_data['MODULEBASEDIR']."content/display.php");?>
             
            
@@ -36,6 +36,6 @@
             </div>
         </div>
 	</div>
- 	<?php print $domain_data['Analytics']?>
+ 	<?php print $domain_data['db']['Analytics']?>
 </body>
 </html>

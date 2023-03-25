@@ -8,18 +8,20 @@
 	}
 	*/
 	//echo"xx";
+	if(isset($text_data["db"]['content_text'])){
+		$str=$text_data["db"]['content_text'];
+		//$str = ltrim($str," \t\n\r");
+		//print $str;
+		
+		/*$ContType=mime_content_type($str);
+			$head="Content-Type: $ContType";
+			header($head);
+			//print $head;
+		*/
+		//print base64_decode($str);
+		print $str;
+	}
 	
-	$str=$text_data["db"]['content_text'];
-	//$str = ltrim($str," \t\n\r");
-	//print $str;
-	
-	/*$ContType=mime_content_type($str);
-		$head="Content-Type: $ContType";
-		header($head);
-		//print $head;
-	*/
-	//print base64_decode($str);
-	print $str;
 	/*//if(is_base64($str)){
 		$ContType=mime_content_type($DisplayFile);
 		$head="Content-Type: $ContType";

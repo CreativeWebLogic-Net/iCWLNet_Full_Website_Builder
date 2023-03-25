@@ -198,7 +198,7 @@
 		$log->general("\n",1);
 		$log->general("-Language Loaded-",1);
 		
-		////echo"--5-5--------------------------------------------------------------------------\n";
+		echo"--5-5--------------------------------------------------------------------------\n";
 		
 		include($app_data['MODULEBASEDIR']."content/init.php");
 		$log->general("-123-Content Loaded",1);
@@ -228,23 +228,15 @@
 		$log->general("-Loaded all Major Variables Loaded-",1);
 		$log->general("\n",1);
 		
-		
+		echo"\n\n-9--------------------------------------------------------\n\n";
 		try{
 			//echo"\n\n-9--------------------------------------------------------\n\n";
 			print_r($template_data);
+			print_r($domain_data);
 			//ob_end_flush();
 			$log->general("-Start line-",3);
 			//$log->general("-Loaded template const",1);
 			//$load_file=TEMPLATEPATH."/index.php";
-			
-			$template_data['My_Dir']=$app_data['APPBASEDIR']."templates/".$template_data["db"]['dir'];
-			$load_file=$template_data['My_Dir']."/index.php";
-			$log->general("-End line-".$load_file,3);
-			//print $load_file;
-			$log->general("-ar Loading Template->".$load_file,3);
-			//echo"\n\n-10----".$load_file."----------------------------------------------------\n\n";
-			if(file_exists($load_file)){
-				include($load_file);
 			}else{
 				throw new Exception('Template not loading.');
 			}

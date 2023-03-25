@@ -12,7 +12,7 @@
 		
 	
 	//---------------------------------------------------------------
-	//echo"--5555---------------------------------------------------------------------------\n";
+	echo"--5555---------------------------------------------------------------------------\n";
 	$log->general("-Content init Start->",1);
 	if(!isset($_SESSION['membersID'])) $_SESSION['membersID']=0;
 	$original_page=$_SERVER['REQUEST_URI'];
@@ -39,7 +39,7 @@
 	$content_data["URI"]="";
 	//if($domain_data["db"]["SEOFriendly"]=="No"){
 		if(isset($_GET['cpid'])){
-			//echo"--dddd------------------".$_GET['cpid']."---------------------------------------------------------\n";
+			echo"--dddd------------------".$_GET['cpid']."---------------------------------------------------------\n";
 			$content_data["content_pagesID"]=$_GET['cpid'];
 			
 			$sql="SELECT DISTINCT URI FROM content_pages WHERE id=".$content_data["content_pagesID"]." LIMIT 0,1";
@@ -116,13 +116,16 @@
 							}
 							
 							$content_data["db"]=$r->Fetch_Assoc($rslt);	
-							
-							$sql="SELECT * FROM mod_business_categories WHERE id=".$domain_user_data['mod_business_categoriesID'];
+							//print_r($domain_user_data);
+							if(isset($domain_user_data['mod_business_categoriesID'])){
+								$sql="SELECT * FROM mod_business_categories WHERE id=".$domain_user_data['mod_business_categoriesID'];
 						
-							$rslt=$r->RawQuery($sql);
-							$bizcat_data["db"]=$r->Fetch_Assoc(rslt);	
+								$rslt=$r->RawQuery($sql);
+								$bizcat_data["db"]=$r->Fetch_Assoc($rslt);	
+								
+								$content_data["db"]['Meta_Title']=$domain_user_data['name']." - ".$bizcat_data['CategoryTitle']." - ".$content_data["db"]['Meta_Title'];
+							}
 							
-							$content_data['Meta_Title']=$domain_user_data['name']." - ".$bizcat_data['CategoryTitle']." - ".$content_data['Meta_Title'];
 						}
 					}
 					

@@ -59,6 +59,8 @@
 			//$sql="SELECT COUNT(*) AS total FROM content_pages";
 			
 			//$csearch=false;
+			//echo"\n\n--22222-------------------------".$sql."--------------------------------------------------\n";
+			
 			$log->general("1 In Domain Counting Down->".$sql,3);
 			$rslt=$r->RawQuery($sql);
 			$num_rows=$r->NumRows($rslt);

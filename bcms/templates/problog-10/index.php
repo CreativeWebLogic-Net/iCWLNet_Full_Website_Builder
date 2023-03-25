@@ -61,6 +61,6 @@
         </div>
 
 		</div>
-	<?php print $domain_data['Analytics']?>
+	<?php print $domain_data['db']['Analytics']?>
 </body>
 </html>

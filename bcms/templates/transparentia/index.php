@@ -5,17 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 
-<title><?php print $content_data['Meta_Title'];?></title>
+<title><?php print $content_data['db']['Meta_Title'];?></title>
 
    
-    <meta name="DC.Title" content="<?php print $content_data['Meta_Title'];?>" />
-    <meta name="description" content="<?php print $content_data['Meta_Description'];?>" />
-    <meta name="keywords" content="<?php print $content_data['Meta_Keywords'];?>" />
+    <meta name="DC.Title" content="<?php print $content_data['db']['Meta_Title'];?>" />
+    <meta name="description" content="<?php print $content_data['db']['Meta_Description'];?>" />
+    <meta name="keywords" content="<?php print $content_data['db']['Meta_Keywords'];?>" />
 	<link rel='shortcut icon' type='image/x-icon' href='<?php print $app_data['asset-sever']; ?>bcms/assets/favicon.ico' />
 	<meta name="robots" content="all" />
     <meta name="generator" content="Bubble CMS Lite" />
 <link rel="stylesheet" href="<?php print $app_data['asset-sever']; ?>bcms/templates/transparentia/style.css" type="text/css" media="screen" />
-<?php print $domain_data['GSiteMapMeta'];?>
+<?php print $domain_data['db']['GSiteMapMeta'];?>
 
 
 </head>
@@ -31,7 +31,7 @@
 		<div class="header">
 		
 			<div class="title">
-		<h1><a href="/"><?=stripslashes($domain_data['SiteTitle']); ?></a></h1>
+		<h1><a href="/"><?php print stripslashes($domain_data['db']['SiteTitle']); ?></a></h1>
 			</div>
 
 		</div>
@@ -47,10 +47,10 @@
 		  <div class="item">
 
 			
-			<h1><?php print $content_data['Title'];?></h1>
+			<h1><?php print $content_data['db']['Title'];?></h1>
 			<div class="entry">
 
-			<? include($app_data['MODULEBASEDIR']."content/display.php");?>
+			<?php include($app_data['MODULEBASEDIR']."content/display.php");?>
 
 			</div>
 
@@ -69,10 +69,10 @@
 		
 		<div class="sidenav">
 		  <ul>
-		    <? include($app_data['MODULEBASEDIR']."menu/li.php");?>
+		    <?php include($app_data['MODULEBASEDIR']."menu/li.php");?>
 			</ul>
 			<h2 style="margin-top:17px">Recent News</h2>
-		<? include($app_data['MODULEBASEDIR']."news/list-items.php");?>
+		<?php include($app_data['MODULEBASEDIR']."news/list-items.php");?>
 		</div>
 	
 		<div class="clearer"><span></span></div>
@@ -93,7 +93,7 @@
 
 
 </div>
-<?php print $domain_data['Analytics']?>
+<?php print $domain_data['db']['Analytics']?>
 </body>
 
 </html>

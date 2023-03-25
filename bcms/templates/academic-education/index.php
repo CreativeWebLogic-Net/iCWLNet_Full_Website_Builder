@@ -8,13 +8,13 @@ Licence URI: http://www.os-templates.com/template-terms
 -->
 <html>
 <head>
-<title><?php print $content_data['Meta_Title'];?></title>
+<title><?php print $content_data['db']['Meta_Title'];?></title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="DC.Title" content="<?php print $content_data['Meta_Title'];?>" />
-<meta name="description" content="<?php print $content_data['Meta_Description'];?>" />
-<meta name="keywords" content="<?php print $content_data['Meta_Keywords'];?>" />
-<link rel='shortcut icon' type='image/x-icon' href='<?php print $app_data['asset-sever']; ?>bcms/assets/favicon.ico' />
+<meta name="DC.Title" content="<?php print $content_data['db']['Meta_Title'];?>" />
+<meta name="description" content="<?php print $content_data['db']['Meta_Description'];?>" />
+<meta name="keywords" content="<?php print $content_data['db']['Meta_Keywords'];?>" />
+<link rel='shortcut icon' type='image/x-icon' href='<?php print $app_data['db']['asset-sever']; ?>bcms/assets/favicon.ico' />
 
 <?php print $domain_data['GSiteMapMeta'];?>
 <link href="<?php print $app_data['asset-sever']; ?>bcms/templates/academic-education/layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
@@ -61,7 +61,7 @@ Licence URI: http://www.os-templates.com/template-terms
     <nav id="mainav" class="clear" style="align:left;"> 
       <!-- ################################################################################################ -->
       
-        <? include($app_data['MODULEBASEDIR']."menu/li-menu.php");?>
+        <?php include($app_data['MODULEBASEDIR']."menu/li-menu.php");?>
         
       <!-- ################################################################################################ --> 
     </nav>
@@ -80,15 +80,15 @@ Licence URI: http://www.os-templates.com/template-terms
         <!-- Middle Column -->
         <div class="one_half"> 
           <!-- ################################################################################################ -->
-          <h2><?php print $content_data['Title'];?></h2>
-                <? include($app_data['MODULEBASEDIR']."content/display.php");?>
+          <h2><?php print $content_data['db']['Title'];?></h2>
+                <?php include($app_data['MODULEBASEDIR']."content/display.php");?>
           <!-- ################################################################################################ --> 
         </div>
         <!-- / Middle Column --> 
         <!-- Right Column -->
         <div class="one_quarter sidebar"> 
           <!-- ################################################################################################ -->
-          <?
+          <?php
                         if(count($sidebar_data)>0){
                             ?>
                                 <div id="SideBar" >

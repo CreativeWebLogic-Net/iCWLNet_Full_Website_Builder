@@ -1,11 +1,11 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title><?php print $content_data['Meta_Title'];?></title>
+<title><?php print $content_data['db']['Meta_Title'];?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="DC.Title" content="<?php print $content_data['Meta_Title'];?>" />
-<meta name="description" content="<?php print $content_data['Meta_Description'];?>" />
-<meta name="keywords" content="<?php print $content_data['Meta_Keywords'];?>" />
-<?php print $domain_data['GSiteMapMeta'];?>
+<meta name="DC.Title" content="<?php print $content_data['db']['Meta_Title'];?>" />
+<meta name="description" content="<?php print $content_data['db']['Meta_Description'];?>" />
+<meta name="keywords" content="<?php print $content_data['db']['Meta_Keywords'];?>" />
+<?php print $domain_data['db']['GSiteMapMeta'];?>
 <link href="<?php print $app_data['asset-sever']; ?>bcms/templates/bubble/style.css" rel="stylesheet" type="text/css" />
 <link href="<?php print $app_data['asset-sever']; ?>bcms/templates/bubble/menu.css" rel="stylesheet" type="text/css" />
 <!--[if lt IE 8]>
@@ -30,7 +30,7 @@ body{behavior:url(csshover.htc); font-size:73%;}
   </div>
   
   <div id="content">
-    <h1><?php print $content_data['Title'];?></h1>
+    <h1><?php print $content_data['db']['Title'];?></h1>
       <?php include($app_data['MODULEBASEDIR']."content/display.php");?>
   </div>
   <div id="footer"> 

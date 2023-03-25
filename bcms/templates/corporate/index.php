@@ -2,18 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <head>
-<title><?php print $content_data['Meta_Title'];?></title>
+<title><?php print $content_data['db']['Meta_Title'];?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="DC.Title" content="<?php print $content_data['Meta_Title'];?>" />
-<meta name="description" content="<?php print $content_data['Meta_Description'];?>" />
-<meta name="keywords" content="<?php print $content_data['Meta_Keywords'];?>" />
-<?php print $domain_data['GSiteMapMeta'];?>
+<meta name="DC.Title" content="<?php print $content_data['db']['Meta_Title'];?>" />
+<meta name="description" content="<?php print $content_data['db']['Meta_Description'];?>" />
+<meta name="keywords" content="<?php print $content_data['db']['Meta_Keywords'];?>" />
+<?php print $domain_data['db']['GSiteMapMeta'];?>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link href="<?php print $app_data['asset-sever']; ?>bcms/templates/corporate/default.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="header">
-  <h1><?php print $content_data['Meta_Title'];?><br />
+  <h1><?php print $content_data['db']['Meta_Title'];?><br />
     </h1>
 </div>
 <div id="menu">
@@ -21,7 +21,7 @@
 </div>
 <div id="content">
   <div id="left">
-    <h1><?php print $content_data['Title'];?></h1>
+    <h1><?php print $content_data['db']['Title'];?></h1>
       <?php include($app_data['MODULEBASEDIR']."content/display.php");?>
     <hr id="border-top" />
     
