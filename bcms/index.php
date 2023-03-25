@@ -237,9 +237,22 @@
 			$log->general("-Start line-",3);
 			//$log->general("-Loaded template const",1);
 			//$load_file=TEMPLATEPATH."/index.php";
+			if(isset($template_data["db"]['dir'])){
+				$template_data['My_Dir']=$app_data['APPBASEDIR']."templates/".$template_data["db"]['dir'];
+				$load_file=$template_data['My_Dir']."/index.php";
+				$log->general("-End line-".$load_file,3);
+				//print $load_file;
+				$log->general("-ar Loading Template->".$load_file,3);
+				//echo"\n\n-10----".$load_file."----------------------------------------------------\n\n";
+				if(file_exists($load_file)){
+					include($load_file);
+				}else{
+					throw new Exception('Template not loading.');
+				}
 			}else{
-				throw new Exception('Template not loading.');
+				exit("No Template File");
 			}
+			
 			
 			//echo"\n\n-11--------------------------------------------------------\n\n";
 		}catch(Exception $e){
