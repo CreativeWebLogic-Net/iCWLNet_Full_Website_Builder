@@ -26,8 +26,8 @@
         $DB['current_dir']="/var/www/html";
         $DB['server_number']=0;
         $DB['hostname']="localhost";
-        $DB['usernamedb']='danielruul78';
-        $DB['passworddb']='DickSux5841';
+        $DB['usernamedb']="Edit This";
+        $DB['passworddb']="Edit This";
         $DB['dbName']='bubblelite2';
 >>>>>>> Stashed changes
         
@@ -40,8 +40,8 @@
         $DB['current_dir']="/home/sitemanage/public_html";
         $DB['server_number']=13;
         $DB['hostname']="sitemanage.info";
-        $DB['usernamedb']='sitemanage_danielruul78';
-        $DB['passworddb']='DickSux5841';
+        $DB['usernamedb']="Edit This";
+        $DB['passworddb']="Edit This";
         $DB['dbName']='sitemanage_bubblelite2';
         
     }
